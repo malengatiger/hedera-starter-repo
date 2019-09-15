@@ -1,0 +1,32 @@
+plugins {
+    id 'java'
+}
+
+group 'Tiger'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+ext {
+
+    junit_version = '4.12'
+    slf4j_version = '1.7.25'
+    log4j_version = '2.11.2'
+}
+repositories {
+    mavenLocal()
+    mavenCentral()
+    jcenter()
+
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+//    implementation 'com.hedera.hashgraph:sdk:0.5.2'
+    implementation 'com.hedera.hashgraph:sdk:0.6.0'
+    // https://mvnrepository.com/artifact/io.github.cdimascio/java-dotenv
+    compile group: 'io.github.cdimascio', name: 'java-dotenv', version: '5.1.2'
+
+    implementation "org.apache.logging.log4j:log4j-slf4j-impl:${log4j_version}"
+    implementation "org.apache.logging.log4j:log4j-web:${log4j_version}"
+    implementation "org.slf4j:jul-to-slf4j:$slf4j_version"
+}
